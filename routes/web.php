@@ -1,6 +1,8 @@
 <?php
 
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,24 +15,53 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function(){
-    return view('home');
+
+
+Route::get('vhome', function(){
+    $blogs = [
+        [
+            'title' => 'Title one',
+            'body' => 'this is a body text',
+            'status' => 1
+        ],
+
+        [
+            'title' => 'Title two',
+            'body' => 'this is a body text two',
+            'status' => 0
+        ],
+        
+        [
+            'title' => 'Title three',
+            'body' => 'this is a body text three',
+            'status' => 1
+        ],
+
+        [
+            'title' => 'Title four',
+            'body' => 'this is a body text four',
+            'status' => 0
+        ]
+    ];
+
+    return view('vhome', compact('blogs')); 
 });
 
 
+Route::get('/home', function(){
+    return view('home');
+});
 
 
 Route::get('/career', function(){
     return view('career');
 });
 
-
-
 Route::get('about', function(){
     return view('about');
 });
 
-Route::get("contact", function(){
+Route::get('contact', function(){
     return view('contact');
 });
 
@@ -38,6 +69,10 @@ Route::get('report', function(){
     return view('report');
 });
 
+
+Route::fallback(function(){
+    return "404";
+});
 
 
 

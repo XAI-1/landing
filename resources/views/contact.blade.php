@@ -29,6 +29,6 @@
 <body>
   <h1>Contact Us</h1>
   <p>Email: contact@xaitech.test</p>
-  <p>Phone: +234 801 234 5678</p>
+  <p>Phone: +2347065018147</p>
 </body>
 </html>
