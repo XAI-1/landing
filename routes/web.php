@@ -41,7 +41,8 @@ Route::get('vhome', function(){
             'title' => 'Title four',
             'body' => 'this is a body text four',
             'status' => 0
-        ]
+        ],
+      
     ];
 
     return view('vhome', compact('blogs')); 

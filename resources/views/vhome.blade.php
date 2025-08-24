@@ -9,7 +9,7 @@
 
         <div class='row mt-5'>
             @foreach ($blogs as $blog )
-                @if ($blog['title'] == 'Title three')
+                @if ($blog['status'] == 1)
                     <div class='col-md-4'>
                         <div class ='card'>
                             <div class='card-body'>
@@ -18,7 +18,18 @@
                             </div>
                         </div>
                     </div>
-                @endif            
+                @else
+                <div class='col-md-4'>
+                        <div class ='card'>
+                            <div class='card-body'>
+                                <h2>{{$blog['title']}}</h2>
+                                <p>{{$blog['body']}}</p>
+                                <div class="btn-sm btn-warning">Pending</div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            
             @endforeach
             </div>
             
