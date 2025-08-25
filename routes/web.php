@@ -25,9 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('vhome', [vhomecontroller::class, 'index']);
  
-
 Route::get('home', [homecontroller::class, 'index']);
-
 
 Route::get('/career',[careercontroller::class, 'index']);
 
