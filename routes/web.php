@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\aboutcontroller;
+use App\Http\Controllers\careercontroller;
+use App\Http\Controllers\contactcontroller;
+use App\Http\Controllers\vhomecontroller;
+use App\Http\Controllers\reportcontroller;
+use App\Http\Controllers\homecontroller;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
@@ -17,59 +23,19 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('vhome', function(){
-    $blogs = [
-        [
-            'title' => 'Title one',
-            'body' => 'this is a body text',
-            'status' => 1
-        ],
+Route::get('vhome', [vhomecontroller::class, 'index']);
+ 
 
-        [
-            'title' => 'Title two',
-            'body' => 'this is a body text two',
-            'status' => 0
-        ],
-        
-        [
-            'title' => 'Title three',
-            'body' => 'this is a body text three',
-            'status' => 1
-        ],
-
-        [
-            'title' => 'Title four',
-            'body' => 'this is a body text four',
-            'status' => 0
-        ],
-      
-    ];
-
-    return view('vhome', compact('blogs')); 
-});
+Route::get('home', [homecontroller::class, 'index']);
 
 
-Route::get('/home', function(){
-    return view('home');
-});
+Route::get('/career',[careercontroller::class, 'index']);
 
+Route::get('about', [aboutcontroller::class, 'index']); 
 
-Route::get('/career', function(){
-    return view('career');
-});
+Route::get('contact', [contactcontroller::class, 'index']);
 
-Route::get('about', function(){
-    return view('about');
-});
-
-Route::get('contact', function(){
-    return view('contact');
-});
-
-Route::get('report', function(){
-    return view('report');
-});
-
+Route::get('report', [reportcontroller::class, 'index']);
 
 Route::fallback(function(){
     return "404";
